@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -e
-
 PACKAGES=$(go list ./... | grep -v vendor)
 
 echo Running gofmt
