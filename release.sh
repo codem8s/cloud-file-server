@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 export BUILD_TAG="travis-$TRAVIS_BUILD_NUMBER-$TRAVIS_BRANCH-$COMMIT-go$TRAVIS_GO_VERSION"
 
 if [[ "${TRAVIS_BRANCH}" =~ "release-*" ]]; then
