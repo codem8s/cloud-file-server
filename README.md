@@ -4,6 +4,7 @@ cloud-file-server is a an application which provide files via http using configu
 
 [![Build Status](https://travis-ci.org/codem8s/cloud-file-server.svg?branch=master)](https://travis-ci.org/codem8s/cloud-file-server)
 [![Go Report Card](https://goreportcard.com/badge/github.com/codem8s/cloud-file-server)](https://goreportcard.com/report/github.com/codem8s/cloud-file-server)
+[![GoDoc](https://godoc.org/github.com/codem8s/cloud-file-server?status.svg "GoDoc Documentation")](https://godoc.org/github.com/codem8s/cloud-file-server)
 
 ## Connectors
 - AWS s3 bucket
