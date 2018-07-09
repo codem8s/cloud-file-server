@@ -108,13 +108,16 @@ func (h *s3Handler) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 	}
 
 	var contentType string
-	if resp.ContentType != nil {
-		contentType = *resp.ContentType
-	}
+	ext := path.Ext(req.URL.Path)
+	contentType = mime.TypeByExtension(ext)
 
 	if contentType == "" {
-		ext := path.Ext(req.URL.Path)
-		contentType = mime.TypeByExtension(ext)
+		if resp.ContentType != nil {
+			contentType = *resp.ContentType
+		} else {
+			log.Printf("Could not set conentType for %q", key)
+			http.Error(rw, connectors.InternalServerErrorMessage, http.StatusInternalServerError)
+		}
 	}
 
 	if resp.ETag != nil && *resp.ETag != "" {
